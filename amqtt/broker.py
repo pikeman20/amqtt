@@ -285,6 +285,7 @@ class Broker:
                         )
                         sc.load_cert_chain(listener["certfile"], listener["keyfile"])
                         sc.verify_mode = ssl.CERT_OPTIONAL
+                        sc.check_hostname = False
                     except KeyError as ke:
                         raise BrokerException(
                             "'certfile' or 'keyfile' configuration parameter missing: %s"
